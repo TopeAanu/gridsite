@@ -1,0 +1,13 @@
+#showcase .showcase-container {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+#showcase-2 .showcase-container-2 {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
