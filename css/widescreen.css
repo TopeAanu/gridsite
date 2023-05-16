@@ -11,14 +11,3 @@
   grid-template-columns: 1fr;
   grid-gap: 1rem;
 }
-
-#showcase .showcase-container,
-#showcase-2 .showcase-container-2,
-#home-articles-2 .articles-container, 
-#home-articles .articles-container, 
-#main-footer .footer-container {
-  display: flex;
-  flex-direction: column;
-  grid-template-columns: 2fr;
-  grid-gap: 1rem;
-}
