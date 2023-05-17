@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navbar */
 #main-nav {
-  background: #fff;
+  background: #f3f3f3;
   position: sticky;
   top: 0;
   z-index: 2;
@@ -187,6 +187,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #main-nav .social i {
   justify-self: center;
+  padding-top: 1rem;
   padding-right: 1rem;
 }
 
@@ -195,6 +196,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: .3rem;
   border-radius: 15px;
   cursor: pointer;
+}
+
+#main-nav .input-container:focus {
+  border-color: #fff;
 }
 
 #main-nav input::placeholder {
@@ -211,6 +216,10 @@ h1, h2, h3, h4, h5, h6 {
   grid-column-end: 2;
   padding-left: 1rem;
   cursor: pointer;
+}
+
+#main-nav .input-container:hover {
+  border-color: var(--tech-color) 1px solid;
 }
 
 #main-nav i:hover {
