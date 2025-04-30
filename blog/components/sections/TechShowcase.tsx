@@ -15,7 +15,7 @@ export const TechShowcase = ({
   content,
   buttonText = "Read More",
   buttonLink = "/article",
-  backgroundImage = "/img/tech-showcase.jpg",
+  backgroundImage = "/tech-showcase.jpg",
 }: TechShowcaseProps) => {
   return (
     <section className="relative">

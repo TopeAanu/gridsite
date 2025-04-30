@@ -8,7 +8,7 @@ export const Footer = () => {
         {/* Logo */}
         <div className="col-span-1 md:col-span-4 justify-self-center">
           <Image
-            src="/img/logodark.png"
+            src="/logodark.png"
             alt="TopeAanu"
             width={150}
             height={50}

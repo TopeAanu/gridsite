@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,105 +9,134 @@ export const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-10 bg-gray-100">
-      <div className="max-w-6xl mx-auto px-8 py-4 grid grid-cols-12 gap-4 items-center">
-        <Link href="/" className="col-span-5 md:col-span-3">
-          <Image
-            src="/img/logolight.png"
-            alt="TopeAanu"
-            width={180}
-            height={50}
-            className="w-[180px]"
-          />
-        </Link>
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Main navbar layout */}
+        <div className="flex items-center py-4">
+          {/* Logo - Left */}
+          <div className="flex-shrink-0 mr-auto">
+            <Link href="/">
+              <Image
+                src="/logolight.png"
+                alt="TopeAanu"
+                width={180}
+                height={50}
+              />
+            </Link>
+          </div>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex col-span-5 justify-end">
-          <li>
+          {/* Navigation Menu - Center-right */}
+          <div className="hidden md:flex items-center space-x-1">
             <Link
               href="/"
-              className="font-bold px-3 py-3 hover:bg-gray-200 transition-colors duration-300 bg-teal-600 text-white"
+              className="px-3 py-2 rounded bg-teal-600 text-white font-bold"
             >
               Home
             </Link>
-          </li>
-          <li>
             <Link
               href="/music"
-              className="font-bold px-3 py-3 hover:bg-gray-200 transition-colors duration-300"
+              className="px-3 py-2 rounded hover:bg-gray-200 text-gray-800 font-bold"
             >
               Music
             </Link>
-          </li>
-          <li>
             <Link
               href="/technology"
-              className="font-bold px-3 py-3 hover:bg-gray-200 transition-colors duration-300"
+              className="px-3 py-2 rounded hover:bg-gray-200 text-gray-800 font-bold"
             >
               Technology
             </Link>
-          </li>
-          <li>
             <Link
               href="/sports"
-              className="font-bold px-3 py-3 hover:bg-gray-200 transition-colors duration-300"
+              className="px-3 py-2 rounded hover:bg-gray-200 text-gray-800 font-bold"
             >
               Sports
             </Link>
-          </li>
-        </ul>
+          </div>
 
-        {/* Mobile Hamburger Menu */}
-        <div className="col-span-2 md:hidden flex justify-end">
-          <HamburgerMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
-        </div>
-
-        {/* Search Bar */}
-        <div className="col-span-4 md:col-span-3 flex items-center">
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-[70%] py-1 px-2 rounded-lg cursor-pointer focus:border-white hover:border-orange-500"
-          />
-          <div className="relative right-10 cursor-pointer">
-            <i className="fas fa-search text-sm"></i>
+          {/* Hamburger Menu Button - Mobile only */}
+          <div className="md:hidden ml-2">
+            <HamburgerMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
           </div>
         </div>
 
-        {/* Social Media Icons */}
-        <div className="hidden md:flex col-span-1 justify-end">
-          <a
-            href="http://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-70 transition-opacity duration-300"
-          >
-            <i className="fab fa-facebook pr-2 pt-1" aria-hidden="true"></i>
-          </a>
-          <a
-            href="http://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-70 transition-opacity duration-300"
-          >
-            <i className="fab fa-twitter pr-2 pt-1"></i>
-          </a>
-          <a
-            href="http://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-70 transition-opacity duration-300"
-          >
-            <i className="fab fa-instagram pr-2 pt-1"></i>
-          </a>
-          <a
-            href="http://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-70 transition-opacity duration-300"
-          >
-            <i className="fab fa-youtube pr-2 pt-1"></i>
-          </a>
+        {/* Search Bar Row */}
+        <div className="flex items-center pb-4">
+          <div className="w-full relative">
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full md:w-1/2 py-1 px-3 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-500"
+            />
+            <div className="absolute right-2 md:right-[calc(50%+8px)] top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-600">
+              <i className="fas fa-search text-sm"></i>
+            </div>
+          </div>
+
+          {/* Social Media Icons - Right side of search bar */}
+          <div className="hidden md:flex space-x-4 ml-auto">
+            <a
+              href="http://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:opacity-70 transition-opacity duration-300"
+            >
+              <i className="fab fa-facebook"></i>
+            </a>
+            <a
+              href="http://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:opacity-70 transition-opacity duration-300"
+            >
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a
+              href="http://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:opacity-70 transition-opacity duration-300"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a
+              href="http://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:opacity-70 transition-opacity duration-300"
+            >
+              <i className="fab fa-youtube"></i>
+            </a>
+          </div>
         </div>
+
+        {/* Mobile Menu (shown when hamburger is clicked) */}
+        {isMenuOpen && (
+          <div className="md:hidden pb-4">
+            <Link
+              href="/"
+              className="block px-3 py-2 rounded bg-teal-600 text-white font-bold"
+            >
+              Home
+            </Link>
+            <Link
+              href="/music"
+              className="block px-3 py-2 rounded hover:bg-gray-200 text-gray-800 font-bold"
+            >
+              Music
+            </Link>
+            <Link
+              href="/technology"
+              className="block px-3 py-2 rounded hover:bg-gray-200 text-gray-800 font-bold"
+            >
+              Technology
+            </Link>
+            <Link
+              href="/sports"
+              className="block px-3 py-2 rounded hover:bg-gray-200 text-gray-800 font-bold"
+            >
+              Sports
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );

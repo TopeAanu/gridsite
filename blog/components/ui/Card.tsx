@@ -34,15 +34,14 @@ export const Card = ({
     secondary: "bg-fuchsia-500 text-white",
     dark: "bg-black text-white",
   };
-
+  
   const variantClass = variantClasses[variant];
-
   const hasImage = !!imageSrc;
 
   const renderCardContent = () => (
-    <div>
+    <div className="p-4">
       {nicheType && <NicheBadge type={nicheType} />}
-      <h3 className="text-xl font-bold mb-2">
+      <h3 className="text-xl font-bold mb-2 uppercase">
         <Link
           href="/article"
           className={variant !== "default" ? "text-white" : ""}
@@ -57,39 +56,39 @@ export const Card = ({
 
   const renderImage = () =>
     imageSrc && (
-      <div>
+      <div className="w-full overflow-hidden">
         <Image
           src={imageSrc}
           alt={imageAlt}
-          width={400}
-          height={300}
-          className="w-full rounded-md"
+          width={600}
+          height={400}
+          className="w-full h-auto object-cover"
         />
       </div>
     );
 
   return (
-    <article className={`${variantClass} p-4 rounded-md ${className}`}>
-      {imagePosition === "top" && renderImage()}
-
-      {imagePosition === "left" && (
-        <div className="grid grid-cols-2 gap-4">
-          {renderImage()}
-          {renderCardContent()}
+    <article className={`${variantClass} rounded-md overflow-hidden shadow-sm ${className} flex flex-col`}>
+      {/* Image top position */}
+      {imagePosition === "top" && hasImage && renderImage()}
+      
+      {/* Left image layout */}
+      {imagePosition === "left" && hasImage ? (
+        <div className="flex flex-col md:flex-row">
+          <div className="w-full md:w-1/2">{renderImage()}</div>
+          <div className="w-full md:w-1/2">{renderCardContent()}</div>
         </div>
-      )}
-
-      {imagePosition === "right" && (
-        <div className="grid grid-cols-2 gap-4">
-          {renderCardContent()}
-          {renderImage()}
+      ) : imagePosition === "right" && hasImage ? (
+        <div className="flex flex-col md:flex-row">
+          <div className="w-full md:w-1/2">{renderCardContent()}</div>
+          <div className="w-full md:w-1/2">{renderImage()}</div>
         </div>
+      ) : (
+        renderCardContent()
       )}
-
-      {(imagePosition === "top" || imagePosition === "bottom" || !hasImage) &&
-        renderCardContent()}
-
-      {imagePosition === "bottom" && renderImage()}
+      
+      {/* Image bottom position */}
+      {imagePosition === "bottom" && hasImage && renderImage()}
     </article>
   );
 };

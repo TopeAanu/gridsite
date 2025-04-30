@@ -58,9 +58,9 @@ export const HomeArticles = ({
   };
 
   return (
-    <section className="py-8">
+    <section className="py-8 bg-white text-gray-800">
       <div className="container max-w-6xl mx-auto px-8">
-        {title && <h2 className="text-3xl font-bold mb-4">{title}</h2>}
+        {title && <h2 className="text-3xl font-bold mb-4 text-gray-800">{title}</h2>}
 
         <div className={`grid grid-cols-1 gap-4 ${getGridClasses()}`}>
           {mappedArticles.map((article, index) => {
@@ -95,7 +95,7 @@ export const HomeArticles = ({
                 imageSrc={article.imageSrc}
                 variant={article.variant}
                 imagePosition={article.imagePosition}
-                className={specialClasses}
+                className={`${specialClasses} text-gray-800`}
               />
             );
           })}

@@ -22,46 +22,49 @@ export const HamburgerMenu = ({ isOpen, setIsOpen }: HamburgerMenuProps) => {
   };
 
   return (
-    <div className="flex relative z-10">
+    <div className="flex relative top-0 left-[10px] z-10">
+      {/* Toggler */}
       <input
         type="checkbox"
-        className="absolute top-0 left-12 z-20 w-12 h-10 opacity-0 cursor-pointer"
+        className="relative top-0 left-[50px] z-20 cursor-pointer w-[50px] h-[40px] opacity-0"
         checked={isChecked}
         onChange={handleToggle}
       />
 
-      <div className="relative top-0 left-0 z-10 w-12 h-12 p-4 flex items-center justify-end">
+      {/* Hamburger */}
+      <div className="relative top-0 left-0 z-10 w-[50px] h-[50px] p-4 rounded-full flex items-center justify-end">
         <div
-          className={`relative flex-none w-full h-px bg-orange-600 flex items-center justify-center transition-all duration-200 
+          className={`relative flex-none w-full h-[1px] bg-orange-600 flex items-center justify-center transition-all duration-200 
           ${isChecked ? "rotate-135 bg-white" : ""}`}
         >
           {/* Hamburger lines */}
-          <span
-            className={`absolute w-full h-px bg-current top-[-6px] 
-            ${isChecked ? "top-0 rotate-90" : ""}`}
-          ></span>
-          <span
-            className={`absolute w-full h-px bg-current top-[6px] 
-            ${isChecked ? "top-0 rotate-90" : ""}`}
-          ></span>
+          <div
+            className={`before:content-[''] before:absolute before:z-10 before:top-[-6px] before:w-full before:h-[1px] before:bg-current 
+                      after:content-[''] after:absolute after:z-10 after:top-[6px] after:w-full after:h-[1px] after:bg-current
+                      ${
+                        isChecked
+                          ? "before:top-0 before:rotate-90 after:top-0 after:rotate-90"
+                          : ""
+                      }`}
+          ></div>
         </div>
       </div>
 
-      {/* Menu that appears when toggled */}
+      {/* Menu */}
       <div
         className={`fixed top-0 left-0 w-full h-full ${
           isChecked ? "visible" : "invisible"
         } overflow-hidden flex items-center justify-center`}
       >
         <div
-          className={`bg-blue-500 bg-opacity-50 rounded-full w-[200vw] h-[200vh] flex items-center justify-center 
+          className={`bg-blue-500 bg-opacity-50 rounded-full w-[200vw] h-[200vh] flex flex-none items-center justify-center 
           transform ${
             isChecked ? "scale-100" : "scale-0"
           } transition-all duration-400`}
         >
           <div
-            className={`text-center max-w-[90vw] max-h-screen opacity-${
-              isChecked ? "100" : "0"
+            className={`text-center max-w-[90vw] max-h-screen ${
+              isChecked ? "opacity-100 delay-400" : "opacity-0"
             } transition-opacity duration-400`}
           >
             <ul className="flex flex-col">
